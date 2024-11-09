@@ -10,7 +10,7 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(debugShowCheckedModeBanner: false,
-    home: Home());
+    home: MyWidget());
   }
 }
 
@@ -23,6 +23,7 @@ class MyWidget extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.blue.shade300,
         title: const Text("Weather App"),
+
       ),
     );
   }
