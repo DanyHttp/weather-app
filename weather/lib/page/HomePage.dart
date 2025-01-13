@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../widgets/Huorly_cart.dart';
+import '../api/WeatherDetails.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({super.key});
@@ -90,19 +91,37 @@ class _HomepageState extends State<Homepage> {
                 ],
               ),
             ),
-            Container(margin: EdgeInsets.all(8),alignment: Alignment.centerLeft,child: Text('Huorly',style: TextStyle(color: Colors.black87,fontSize: 25,fontWeight: FontWeight.bold),)),
             Container(
-              width: double.infinity,
-              height: screensize.height / 5,
-              child:ListView.builder(
-  scrollDirection: Axis.horizontal,
-  itemCount: 10,
-  itemBuilder: (BuildContext context, int index) {
-    return Center(child: Huorly_Cart(screensize: screensize));
-  },
-)
-            )
-            ,Expanded(child: ListView.separated(itemCount: 6,itemBuilder: (context , index ){return ListTile(title: Text('Sunday'),leading:Image.asset("assets/weathers.webp") );}, separatorBuilder: (context , index){return Divider();}))
+                margin: EdgeInsets.all(8),
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  'Huorly',
+                  style: TextStyle(
+                      color: Colors.black87,
+                      fontSize: 25,
+                      fontWeight: FontWeight.bold),
+                )),
+            Container(
+                width: double.infinity,
+                height: screensize.height / 5,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: 10,
+                  itemBuilder: (BuildContext context, int index) {
+                    return Center(child: Huorly_Cart(screensize: screensize));
+                  },
+                )),
+            Expanded(
+                child: ListView.separated(
+                    itemCount: 6,
+                    itemBuilder: (context, index) {
+                      return ListTile(
+                          title: Text('Sunday'),
+                          leading: Image.asset("assets/weathers.webp"));
+                    },
+                    separatorBuilder: (context, index) {
+                      return Divider();
+                    }))
           ],
         ),
       ),
